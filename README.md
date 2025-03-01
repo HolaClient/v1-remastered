@@ -2,7 +2,7 @@
 ![image](https://github.com/HolaClient/HolaClient/assets/102372274/8cc5e386-223c-434e-ab35-e587515d5138)
 <p align="center" dir="auto">Trusted by hundreds of hosts and thousands of users.</p>
 <p align="center">
-  <a><img src="https://img.shields.io/github/downloads/HolaClient/HolaClient/total?color=blue&label=Downloads"/></a>
+  <a><img src="https://img.shields.io/github/downloads/HolaClient/v1-remastered/total?color=blue&label=Downloads"/></a>
   <a href="https://discord.gg/CvqRH9TrYK"><img src="https://img.shields.io/discord/1038719273658499072?color=blue&label=Discord&logo=HolaClient&logoColor=blue" alt="discord" /></a>
   <a  href="https://github.com/CR072/HolaClient/stargazers"><img src="https://img.shields.io/github/stars/HolaClient/HolaClient?label=Stars %E2%AD%90" height="20"/></a>
 </p>
