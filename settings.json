@@ -2,7 +2,7 @@
   "version": "1.5.8",
   "name": "HolaClient",
   "background": "/cdn/background.jpg",
-  "banner": "https://github.com/CR072/cdnx/blob/main/production/images/welcome.png",
+  "banner": "https://cdn.holaclientx.tech/production/images/welcome.png",
   "defaulttheme": "default",
   "logo": {
     "url": "https://cdn.holaclientx.tech/logo.png",
@@ -11,7 +11,7 @@
   },
   "website": {
     "port": 2000,
-    "secret": "GENERATE",
+    "secret": "aG6Llcu0F5jpqEuK",
     "hostname": "https://client.example.com",
     "description": "The best reliable hosting ever.",
     "language": "en"
@@ -203,47 +203,24 @@
       {
         "name": "HolaClient",
         "title": "HolaClient",
-        "redirect": "https://holaclient.dev",
-        "image": "https://media.discordapp.net/attachments/1108054221456146534/1117779127680905226/Untitled.png?width=470&height=110"
-      },
-      {
-        "name": "HolaClient",
-        "title": "HolaClient",
-        "redirect": "https://holaclient.dev",
-        "image": "https://media.discordapp.net/attachments/1108054221456146534/1117779127680905226/Untitled.png?width=470&height=105"
-      },
-      {
-        "name": "HolaClient",
-        "title": "HolaClient",
-        "redirect": "https://holaclient.dev",
-        "image": "https://media.discordapp.net/attachments/1108054221456146534/1117779127680905226/Untitled.png?width=470&height=105"
-      },
-      {
-        "name": "HolaClient",
-        "title": "HolaClient",
-        "redirect": "https://holaclient.dev",
-        "image": "https://media.discordapp.net/attachments/1108054221456146534/1117779127680905226/Untitled.png?width=470&height=105"
-      },
-      {
-        "name": "HolaClient",
-        "title": "HolaClient",
-        "redirect": "https://holaclient.dev",
-        "image": "https://media.discordapp.net/attachments/1108054221456146534/1117779127680905226/Untitled.png?width=470&height=220"
-      },
-      {
-        "name": "HolaClient",
-        "title": "HolaClient",
-        "redirect": "https://discord.gg/nexorion",
-        "image": "https://media.discordapp.net/attachments/1135147336771850250/1135462020246945832/image.png?width=1440&height=320"
+        "redirect": "https://discord.gg/example",
+        "image": "https://cdn.spectrumdevs.com/mc/mcsrv.png"
       }
     ]
   },
   "api": {
     "enabled": true,
-    "key": "GENERATE",
+    "key": "hcla_NW9jWimY9fQRMDpghtGIikxBR3rfUvid",
     "client": {
       "enabled": true,
-      "locations": {}
+      "locations": {
+        "1": {
+          "name": null,
+          "short": "Arizona, US",
+          "banner": "https://flagsapi.com/Arizona, US/flat/48.png",
+          "package": null
+        }
+      }
     }
   },
   "passwordgenerator": {

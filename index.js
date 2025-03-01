@@ -99,7 +99,6 @@ loadRoute(path.join(__dirname, 'routes', 'authentication'), app, db); l.r(`authe
 loadRoute(path.join(__dirname, 'routes', 'billing'), app, db); l.r(`billers`)
 loadRoute(path.join(__dirname, 'routes', 'earn'), app, db); l.r(`earn`)
 loadRoute(path.join(__dirname, 'routes', 'structures'), app, db); l.r(`structures`)
-loadRoute(path.join(__dirname, 'routes', 'controller'), app, db); l.r(`controllers`)
 loadRoute(path.join(__dirname, 'routes', 'users'), app, db); l.r(`clients`)
 loadRoute(path.join(__dirname, 'routes', 'features'), app, db); l.r(`features`)
 loadRoute(path.join(__dirname, 'routes', 'router'), app, db);
