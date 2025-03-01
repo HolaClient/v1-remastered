@@ -4,6 +4,7 @@ const log = require('../handlers/webhook.js')
 module.exports.load = async function(app, db) {
   function createRoute(routeName, resourceKey, resourceDisplayName, costKey, perKey) {
     app.post(routeName, async (req, res) => {
+      if (!req.session.pterodactyl) return res.redirect("/login");
       if (!settings) {return;}
       const { amount } = req.body;
       if (!amount) return res.json({ "success": false, "message": alerts.MISSINGAMOUNT });  

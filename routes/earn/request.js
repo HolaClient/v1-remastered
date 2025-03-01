@@ -45,29 +45,20 @@ module.exports.load = async function (app, db) {
 
             app.post("/request/coins/grant", async (req, res) => {
                 if (!req.session.pterodactyl) return res.redirect("/login");
-                const requestId = req.body.requestId;
-                const user = req.session.userinfo.hcid;
+                const requestId = req.body.requestId, user = req.session.userinfo.hcid;
                 if (!requestId) return res.json({ "success": false, "message": alerts.MISSINGREQUESTID });
                 const requestInfo = await db.get(`request-${requestId}`);
                 if (!requestInfo) return res.json({ "success": false, "message": alerts.INVALIDREQUEST });
-                const owner = requestInfo.requestFromId;
-                const giverCoins = parseInt(await db.get(`coins-${user}`)) ?? 0
-                const numRm = giverCoins -requestInfo.requestedCoins
-                await db.set(`coins-${user}`, numRm);
-                const userCoins = parseInt(await db.get(`coins-${owner}`)) || 0;
-                const requestedCoins = parseInt(requestInfo.requestedCoins) || 0;
-                const numAdd = userCoins + requestedCoins;
-                await db.set(`coins-${owner}`, numAdd);
+                const owner = requestInfo.requestFromId, giverCoins = parseInt(await db.get(`coins-${user}`)) ?? 0, requestedCoins = parseInt(requestInfo.requestedCoins) || 0;
+                if (giverCoins < requestedCoins) return res.json({ "success": false, "message": alerts.INSUFFICIENTCOINS });
+                await db.set(`coins-${user}`, giverCoins - requestedCoins);
+                await db.set(`coins-${owner}`, (parseInt(await db.get(`coins-${owner}`)) || 0) + requestedCoins);
                 let requests = (await db.get(`requests-${user}`)) || [];
-                requests = requests.filter((request) => request.requestId !== requestId);
-                if (requests.length == 0) {
-                    await db.delete(`requests-${user}`);
-                } else {
-                    await db.set(`requests-${user}`, requests);
-                }
+                requests = requests.filter((id) => id !== requestId);
+                requests.length == 0 ? await db.delete(`requests-${user}`) : await db.set(`requests-${user}`, requests);
                 await db.delete(`request-${requestId}`);
                 return res.json({ "success": true, "message": alerts.REQUESTGRANTED });
-            });
+            });            
 
             app.post("/request/coins/ignore", async (req, res) => {
                 if (!req.session.pterodactyl) return res.redirect("/login");

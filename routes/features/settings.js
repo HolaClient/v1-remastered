@@ -3,6 +3,7 @@ const fs = require("fs");
 module.exports.load = async function (app, db) {
   app.post("/update-brand", (req, res) => {
     if (!req.session.pterodactyl) return res.redirect("/auth");
+    if (req.session.pterodactyl.root_admin !== true) return res.redirect('/403')
     try {
       const nameValue = req.body.name;
       const logoValue = req.body.logo;

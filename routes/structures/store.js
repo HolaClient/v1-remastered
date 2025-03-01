@@ -5,6 +5,7 @@ module.exports.load = async function(app, db) {
   function createRoute(routeName, resourceKey, resourceDisplayName, costKey, perKey, limitKey) {
     app.post(routeName, async (req, res) => {
       if (settings) {
+        if (!req.session.pterodactyl) return res.redirect("/login");
         let amount = req.body.amount;
         if (!amount) return res.json({ "success": false, "message": alerts.MISSINGAMOUNT });
         amount = parseFloat(amount);

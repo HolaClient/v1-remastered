@@ -62,6 +62,7 @@ module.exports.load = async function (app, db) {
   
   app.post('/subdomain/create', async (req, res) => {
     try {
+      if (!req.session.pterodactyl) return res.redirect("/login");
       const { subdomain, target, port } = req.body;
   
       const url = `https://api.cloudflare.com/client/v4/zones/${cloudflareZoneID}/dns_records`;

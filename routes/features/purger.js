@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 module.exports.load = async function (app, db) {
   app.post("/api/purge", async (req, res) => {
     if (!req.session.pterodactyl) return res.redirect("/login");
-
+    if (req.session.pterodactyl.root_admin !== true) return res.redirect('/403')
     try {
       const cacheaccount = await fetch(
         `${settings.pterodactyl.domain}/api/application/users/${req.session.pterodactyl.id}?include=servers`,
